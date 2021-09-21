@@ -1,2 +1,2 @@
-# Udacity_fullstack
+# Udacity fullstack
 Udacity Assignments
