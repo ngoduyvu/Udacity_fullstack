@@ -1,0 +1,19 @@
+{
+  "name": "fullstack",
+  "version": "1.0.0",
+  "description": "Assignments for Fullstack",
+  "main": "src\\index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngoduyvu/Udacity_fullstack.git"
+  },
+  "author": "Ngo Duy Vu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngoduyvu/Udacity_fullstack/issues"
+  },
+  "homepage": "https://github.com/ngoduyvu/Udacity_fullstack#readme"
+}
