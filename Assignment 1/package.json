@@ -4,7 +4,9 @@
   "description": "Assignments for Fullstack",
   "main": "src\\index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "lint": "eslint \"src/**/*.js\"",
+    "prettier": "prettier --config .prettierrc \"src/**/*.js\" --write"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/ngoduyvu/Udacity_fullstack/issues"
   },
-  "homepage": "https://github.com/ngoduyvu/Udacity_fullstack#readme"
+  "homepage": "https://github.com/ngoduyvu/Udacity_fullstack#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsdoc": "^36.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.3"
+  }
 }
