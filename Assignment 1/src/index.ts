@@ -1,6 +1,13 @@
+import express from 'express';
+import { runInContext } from 'vm';
 
-const myName = 'your name';
+const app = express();
+const port = 3000;
 
-const hello = (userName: string): string => `hello, ${userName}`;
+app.get('/api', (req, res) => {
+  res.send('Hello World');
+});
 
-console.log(hello(myName));
+app.listen(port, () => {
+  console.log(`Server started at localhost: ${port}`);
+});
