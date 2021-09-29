@@ -41,13 +41,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var sharp_1 = __importDefault(require("sharp"));
+var logger_1 = __importDefault(require("./utilities/logger"));
 var app = (0, express_1.default)();
 var port = 3000;
-app.get('/api', function (req, res) {
+app.get('/api', logger_1.default, function (req, res) {
     res.send('Hello World');
 });
 app.listen(port, function () {
-    console.log("Server started at localhost: " + port);
+    console.log("server started at http://localhost:" + port);
 });
 var resize = function (imagePath, size, outputPath) {
     return __awaiter(this, void 0, void 0, function () {
