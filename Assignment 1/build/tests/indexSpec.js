@@ -43,8 +43,14 @@ var supertest_1 = __importDefault(require("supertest"));
 var index_1 = __importDefault(require("../index"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
-var INVALID_FILES = ["file1", "file2", "abcwr", "ghw", "bjskw;"];
-var VALID_FILES = ["encenadaport", "fjord", "icelandwaterfall", "palmtunnel", "santamonica"];
+var INVALID_FILES = ['file1', 'file2', 'abcwr', 'ghw', 'bjskw;'];
+var VALID_FILES = [
+    'encenadaport',
+    'fjord',
+    'icelandwaterfall',
+    'palmtunnel',
+    'santamonica',
+];
 var randomIndex = Math.floor(Math.random() * 5);
 var negativeNumber = Math.floor(Math.random() * 200) * -1;
 var imgFolder = path_1.default.resolve('thumb');
@@ -67,7 +73,7 @@ describe('Test Main API Endpoint Response', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "&height=200&width=200")];
+                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "&height=200&\n        width=200")];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
@@ -80,7 +86,7 @@ describe('Test Main API Endpoint Response', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + INVALID_FILES[randomIndex] + "&height=200&width=200")];
+                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + INVALID_FILES[randomIndex] + "&height=200&\n        width=200")];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(400);
@@ -93,7 +99,7 @@ describe('Test Main API Endpoint Response', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "&height=" + negativeNumber + "&width=" + negativeNumber)];
+                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "\n        &height=" + negativeNumber + "&width=" + negativeNumber)];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(400);
@@ -116,12 +122,12 @@ describe('Test Main API Endpoint Response', function () {
         });
     }); });
     it('Test New Image File Created', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var response, imgPath;
+        var imgPath;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "&height=200&width=200")];
+                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "\n        &height=200&width=200")];
                 case 1:
-                    response = _a.sent();
+                    _a.sent();
                     imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_thumb.jpg");
                     expect(fs_1.default.existsSync(imgPath)).toBe(true);
                     done();

@@ -58,12 +58,13 @@ processImg.get('/', function (req, res) { return __awaiter(void 0, void 0, void 
                     res.status(400).send("The image name " + filename + " is invalid.");
                     return [2 /*return*/];
                 }
-                ;
-                if ((height <= 0 || isNaN(height) == true) || (width <= 0 || isNaN(width) == true)) {
+                if (height <= 0 ||
+                    isNaN(height) == true ||
+                    width <= 0 ||
+                    isNaN(width) == true) {
                     res.status(400).send("The parameters hight or width are not correct.");
                     return [2 /*return*/];
                 }
-                ;
                 return [4 /*yield*/, (0, resize_1.default)(filename, width, height)];
             case 1:
                 _a.sent();
