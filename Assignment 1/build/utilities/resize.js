@@ -39,50 +39,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var supertest_1 = __importDefault(require("supertest"));
-var index_1 = __importDefault(require("../index"));
-var INVALID_FILES = ["file1", "file2", "abcwr", "ghw", "bjskw;"];
-var VALID_FILES = ["encenadaport", "fjord", "icelandwaterfall", "palmtunnel", "santamonica"];
-var randomIndex = Math.floor(Math.random() * 5);
-var request = (0, supertest_1.default)(index_1.default);
-describe('Test Main API Endpoint Response', function () {
-    it('Test the API endpoint', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
+var sharp_1 = __importDefault(require("sharp"));
+var resize = function (filename, width, height) {
+    return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/api')];
+                case 0: return [4 /*yield*/, (0, sharp_1.default)("./full/" + filename + ".jpg").resize(width, height).toFile("./thumb/" + filename + "_thumb" + ".jpg")];
                 case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    done();
+                    _a.sent();
                     return [2 /*return*/];
             }
         });
-    }); });
-    it('Test Process Image Endpoint', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "&height=200&width=200")];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    done();
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('Test Invalid Image Name', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + INVALID_FILES[randomIndex] + "&height=200&width=200")];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(400);
-                    done();
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-});
+    });
+};
+exports.default = resize;

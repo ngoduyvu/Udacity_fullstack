@@ -39,50 +39,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var supertest_1 = __importDefault(require("supertest"));
-var index_1 = __importDefault(require("../index"));
-var INVALID_FILES = ["file1", "file2", "abcwr", "ghw", "bjskw;"];
-var VALID_FILES = ["encenadaport", "fjord", "icelandwaterfall", "palmtunnel", "santamonica"];
-var randomIndex = Math.floor(Math.random() * 5);
-var request = (0, supertest_1.default)(index_1.default);
-describe('Test Main API Endpoint Response', function () {
-    it('Test the API endpoint', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/api')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    done();
+var express_1 = __importDefault(require("express"));
+var fs_1 = __importDefault(require("fs"));
+var path_1 = __importDefault(require("path"));
+var resize_1 = __importDefault(require("../../utilities/resize"));
+var processImg = express_1.default.Router();
+var imgFolder = path_1.default.resolve('full');
+processImg.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var filename, height, width, imgPath;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                filename = req.query.filename;
+                height = parseInt(req.query.height);
+                width = parseInt(req.query.width);
+                imgPath = path_1.default.join(imgFolder, filename + ".jpg");
+                console.log(imgPath);
+                if (filename == null || !fs_1.default.existsSync(imgPath)) {
+                    res.status(400).send("The image name " + filename + " is invalid.");
                     return [2 /*return*/];
-            }
-        });
-    }); });
-    it('Test Process Image Endpoint', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "&height=200&width=200")];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    done();
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('Test Invalid Image Name', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + INVALID_FILES[randomIndex] + "&height=200&width=200")];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(400);
-                    done();
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-});
+                }
+                ;
+                return [4 /*yield*/, (0, resize_1.default)(filename, width, height)];
+            case 1:
+                _a.sent();
+                res.status(200).send("Processing the image " + filename + ".");
+                return [2 /*return*/];
+        }
+    });
+}); });
+exports.default = processImg;
