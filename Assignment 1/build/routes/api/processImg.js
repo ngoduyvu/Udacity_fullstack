@@ -54,9 +54,13 @@ processImg.get('/', function (req, res) { return __awaiter(void 0, void 0, void 
                 height = parseInt(req.query.height);
                 width = parseInt(req.query.width);
                 imgPath = path_1.default.join(imgFolder, filename + ".jpg");
-                console.log(imgPath);
                 if (filename == null || !fs_1.default.existsSync(imgPath)) {
                     res.status(400).send("The image name " + filename + " is invalid.");
+                    return [2 /*return*/];
+                }
+                ;
+                if ((height <= 0 || isNaN(height) == true) || (width <= 0 || isNaN(width) == true)) {
+                    res.status(400).send("The parameters hight or width are not correct.");
                     return [2 /*return*/];
                 }
                 ;
