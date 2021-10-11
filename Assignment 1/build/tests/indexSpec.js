@@ -73,7 +73,7 @@ describe('Test Main API Endpoint Response', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "&height=200&\n        width=200")];
+                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "&height=200&width=200")];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
@@ -86,7 +86,7 @@ describe('Test Main API Endpoint Response', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + INVALID_FILES[randomIndex] + "&height=200&\n        width=200")];
+                case 0: return [4 /*yield*/, request.get("/api/image?filename=" + INVALID_FILES[randomIndex] + "&height=200&width=200")];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(400);

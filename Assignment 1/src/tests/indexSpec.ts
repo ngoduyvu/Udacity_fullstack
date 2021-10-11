@@ -26,8 +26,7 @@ describe('Test Main API Endpoint Response', () => {
 
   it('Test Process Image Endpoint', async (done) => {
     const response = await request.get(
-        `/api/image?filename=${VALID_FILES[randomIndex]}&height=200&
-        width=200`,
+        `/api/image?filename=${VALID_FILES[randomIndex]}&height=200&width=200`,
     );
     expect(response.status).toBe(200);
     done();
@@ -35,8 +34,7 @@ describe('Test Main API Endpoint Response', () => {
 
   it('Test Invalid Image Name', async (done) => {
     const response = await request.get(
-        `/api/image?filename=${INVALID_FILES[randomIndex]}&height=200&
-        width=200`,
+        `/api/image?filename=${INVALID_FILES[randomIndex]}&height=200&width=200`,
     );
     expect(response.status).toBe(400);
     done();

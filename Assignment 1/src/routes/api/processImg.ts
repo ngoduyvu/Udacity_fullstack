@@ -17,6 +17,10 @@ processImg.get('/', async (req: express.Request, res: express.Response) => {
     return;
   }
 
+  console.log(filename);
+  console.log(height);
+  console.log(width);
+
   if (
     height <= 0 ||
     isNaN(height) == true ||
