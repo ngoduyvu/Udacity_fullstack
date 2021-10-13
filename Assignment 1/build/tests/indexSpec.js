@@ -43,6 +43,7 @@ var supertest_1 = __importDefault(require("supertest"));
 var index_1 = __importDefault(require("../index"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
+var resize_1 = __importDefault(require("../utilities/resize"));
 var INVALID_FILES = ['file1', 'file2', 'abcwr', 'ghw', 'bjskw;'];
 var VALID_FILES = [
     'encenadaport',
@@ -55,6 +56,36 @@ var randomIndex = Math.floor(Math.random() * 5);
 var negativeNumber = Math.floor(Math.random() * 200) * -1;
 var imgFolder = path_1.default.resolve('thumb');
 var request = (0, supertest_1.default)(index_1.default);
+describe('Test Function Resize Image', function () {
+    it('Test Resize 1', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var imgPath;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, resize_1.default)(VALID_FILES[randomIndex], 300, 500)];
+                case 1:
+                    _a.sent();
+                    imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_thumb.jpg");
+                    expect(fs_1.default.existsSync(imgPath)).toBe(true);
+                    done();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('Test Resize 2', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var imgPath;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, resize_1.default)(VALID_FILES[randomIndex], 500, 800)];
+                case 1:
+                    _a.sent();
+                    imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_thumb.jpg");
+                    expect(fs_1.default.existsSync(imgPath)).toBe(true);
+                    done();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
 describe('Test Main API Endpoint Response', function () {
     it('Test the API endpoint', function (done) { return __awaiter(void 0, void 0, void 0, function () {
         var response;

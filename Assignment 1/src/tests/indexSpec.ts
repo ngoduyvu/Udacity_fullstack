@@ -2,6 +2,7 @@ import supertest from 'supertest';
 import app from '../index';
 import fs from 'fs';
 import path from 'path';
+import resize from '../utilities/resize';
 
 const INVALID_FILES = ['file1', 'file2', 'abcwr', 'ghw', 'bjskw;'];
 const VALID_FILES = [
@@ -17,6 +18,24 @@ const negativeNumber: number = Math.floor(Math.random() * 200) * -1;
 const imgFolder: string = path.resolve('thumb');
 
 const request = supertest(app);
+describe('Test Function Resize Image', () => {
+  it('Test Resize 1', async (done) => {
+    await resize(VALID_FILES[randomIndex], 300, 500);
+    const imgPath = path.join(imgFolder,
+        `${VALID_FILES[randomIndex]}_thumb.jpg`);
+    expect(fs.existsSync(imgPath)).toBe(true);
+    done();
+  });
+
+  it('Test Resize 2', async (done) => {
+    await resize(VALID_FILES[randomIndex], 500, 800);
+    const imgPath = path.join(imgFolder,
+        `${VALID_FILES[randomIndex]}_thumb.jpg`);
+    expect(fs.existsSync(imgPath)).toBe(true);
+    done();
+  });
+});
+
 describe('Test Main API Endpoint Response', () => {
   it('Test the API endpoint', async (done) => {
     const response = await request.get('/api');
