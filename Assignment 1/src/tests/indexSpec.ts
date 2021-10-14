@@ -3,6 +3,8 @@ import app from '../index';
 import fs from 'fs';
 import path from 'path';
 import resize from '../utilities/resize';
+import {fileExist} from '../utilities/fileExist';
+import {filePath} from '../utilities/fileExist';
 
 const INVALID_FILES = ['file1', 'file2', 'abcwr', 'ghw', 'bjskw;'];
 const VALID_FILES = [
@@ -18,11 +20,11 @@ const negativeNumber: number = Math.floor(Math.random() * 200) * -1;
 const imgFolder: string = path.resolve('thumb');
 
 const request = supertest(app);
-describe('Test Function Resize Image', () => {
+describe('Test Utilities Functions', () => {
   it('Test Resize 1', async (done) => {
     await resize(VALID_FILES[randomIndex], 300, 500);
     const imgPath = path.join(imgFolder,
-        `${VALID_FILES[randomIndex]}_thumb.jpg`);
+        `${VALID_FILES[randomIndex]}_500_300.jpg`);
     expect(fs.existsSync(imgPath)).toBe(true);
     done();
   });
@@ -30,10 +32,29 @@ describe('Test Function Resize Image', () => {
   it('Test Resize 2', async (done) => {
     await resize(VALID_FILES[randomIndex], 500, 800);
     const imgPath = path.join(imgFolder,
-        `${VALID_FILES[randomIndex]}_thumb.jpg`);
+        `${VALID_FILES[randomIndex]}_800_500.jpg`);
     expect(fs.existsSync(imgPath)).toBe(true);
     done();
   });
+
+  it('Test Check File-Exist function True', async (done) => {
+    const exist = await fileExist('thumb', 'encenadaport_200_200');
+    expect(exist).toBe(true);
+    done();
+  });
+
+  it('Test Check File-Exist function Frue', async (done) => {
+    const exist = await fileExist('thumb', 'Fakename_200_200');
+    expect(exist).toBe(false);
+    done();
+  });
+  
+  it('Test Check File-Exist function Frue', async (done) => {
+    const path = filePath('thumb', 'santamonica_200_200');
+    expect(path).toBe("C:\\Full Stack\\Assignment 1\\Udacity_fullstack\\Assignment 1\\thumb\\santamonica_200_200.jpg");
+    done();
+  });
+  
 });
 
 describe('Test Main API Endpoint Response', () => {
@@ -82,7 +103,7 @@ describe('Test Main API Endpoint Response', () => {
         &height=200&width=200`,
     );
     const imgPath = path.join(imgFolder,
-        `${VALID_FILES[randomIndex]}_thumb.jpg`);
+        `${VALID_FILES[randomIndex]}_200_200.jpg`);
     expect(fs.existsSync(imgPath)).toBe(true);
     done();
   });

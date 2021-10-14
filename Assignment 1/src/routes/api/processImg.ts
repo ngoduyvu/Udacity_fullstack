@@ -2,24 +2,29 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import resize from '../../utilities/resize';
+import {fileExist} from '../../utilities/fileExist';
+import {filePath} from '../../utilities/fileExist';
 
 const processImg = express.Router();
-const imgFolder: string = path.resolve('full');
 
 processImg.get('/', async (req: express.Request, res: express.Response) => {
   const filename = req.query.filename as string;
   const height = parseInt(req.query.height as string);
   const width = parseInt(req.query.width as string);
 
-  const imgPath = path.join(imgFolder, `${filename}.jpg`);
-  if (filename == null || !fs.existsSync(imgPath)) {
+  let exist = await fileExist('full', filename);
+
+  if (filename == null || !exist) {
     res.status(400).send(`The image name ${filename} is invalid.`);
     return;
   }
 
-  // console.log(filename);
-  // console.log(height);
-  // console.log(width);
+  exist = await fileExist('thumb', `${filename}_${height}_${width}`);
+  if(exist) {
+    res.status(200).sendFile(filePath('thumb', `${filename}_${height}_${width}`));
+    res.send(`File ${filename}_${height}_${width} already exist.`)
+    return;
+  }
 
   if (
     height <= 0 ||
@@ -31,7 +36,8 @@ processImg.get('/', async (req: express.Request, res: express.Response) => {
     return;
   }
   await resize(filename, width, height);
-  res.status(200).send(`Processing the image ${filename}.`);
+  res.status(200).sendFile(filePath('thumb', `${filename}_${height}_${width}`));
+  res.send(`Processing the image ${filename}.`);
 });
 
 export default processImg;

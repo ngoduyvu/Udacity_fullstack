@@ -39,19 +39,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var sharp_1 = __importDefault(require("sharp"));
-var resize = function (filename, width, height) {
+exports.filePath = exports.fileExist = void 0;
+var fs_1 = __importDefault(require("fs"));
+var path_1 = __importDefault(require("path"));
+var fileExist = function (folder, filename) {
     return __awaiter(this, void 0, void 0, function () {
+        var imgFolder, imgPath;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, sharp_1.default)('./full/' + filename + '.jpg')
-                        .resize(width, height)
-                        .toFile('./thumb/' + filename + '_' + height + '_' + width + '.jpg')];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
+            imgFolder = path_1.default.resolve(folder);
+            imgPath = path_1.default.join(imgFolder, filename + ".jpg");
+            if (fs_1.default.existsSync(imgPath)) {
+                return [2 /*return*/, true];
             }
+            else {
+                return [2 /*return*/, false];
+            }
+            return [2 /*return*/];
         });
     });
 };
-exports.default = resize;
+exports.fileExist = fileExist;
+var filePath = function (folder, filename) {
+    var imgFolder = path_1.default.resolve(folder);
+    var imgPath = path_1.default.join(imgFolder, filename + ".jpg");
+    console.log(imgPath);
+    return imgPath;
+};
+exports.filePath = filePath;

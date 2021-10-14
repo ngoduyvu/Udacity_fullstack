@@ -40,27 +40,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var fs_1 = __importDefault(require("fs"));
-var path_1 = __importDefault(require("path"));
 var resize_1 = __importDefault(require("../../utilities/resize"));
+var fileExist_1 = require("../../utilities/fileExist");
+var fileExist_2 = require("../../utilities/fileExist");
 var processImg = express_1.default.Router();
-var imgFolder = path_1.default.resolve('full');
 processImg.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var filename, height, width, imgPath;
+    var filename, height, width, exist;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 filename = req.query.filename;
                 height = parseInt(req.query.height);
                 width = parseInt(req.query.width);
-                imgPath = path_1.default.join(imgFolder, filename + ".jpg");
-                if (filename == null || !fs_1.default.existsSync(imgPath)) {
+                return [4 /*yield*/, (0, fileExist_1.fileExist)('full', filename)];
+            case 1:
+                exist = _a.sent();
+                if (filename == null || !exist) {
                     res.status(400).send("The image name " + filename + " is invalid.");
                     return [2 /*return*/];
                 }
-                // console.log(filename);
-                // console.log(height);
-                // console.log(width);
+                return [4 /*yield*/, (0, fileExist_1.fileExist)('thumb', filename + "_" + height + "_" + width)];
+            case 2:
+                exist = _a.sent();
+                if (exist) {
+                    res.status(200).sendFile((0, fileExist_2.filePath)('thumb', filename + "_" + height + "_" + width));
+                    res.send("File " + filename + "_" + height + "_" + width + " already exist.");
+                    return [2 /*return*/];
+                }
                 if (height <= 0 ||
                     isNaN(height) == true ||
                     width <= 0 ||
@@ -69,9 +75,10 @@ processImg.get('/', function (req, res) { return __awaiter(void 0, void 0, void 
                     return [2 /*return*/];
                 }
                 return [4 /*yield*/, (0, resize_1.default)(filename, width, height)];
-            case 1:
+            case 3:
                 _a.sent();
-                res.status(200).send("Processing the image " + filename + ".");
+                res.status(200).sendFile((0, fileExist_2.filePath)('thumb', filename + "_" + height + "_" + width));
+                res.send("Processing the image " + filename + ".");
                 return [2 /*return*/];
         }
     });

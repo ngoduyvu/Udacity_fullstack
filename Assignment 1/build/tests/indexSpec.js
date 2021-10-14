@@ -44,6 +44,8 @@ var index_1 = __importDefault(require("../index"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
 var resize_1 = __importDefault(require("../utilities/resize"));
+var fileExist_1 = require("../utilities/fileExist");
+var fileExist_2 = require("../utilities/fileExist");
 var INVALID_FILES = ['file1', 'file2', 'abcwr', 'ghw', 'bjskw;'];
 var VALID_FILES = [
     'encenadaport',
@@ -56,7 +58,7 @@ var randomIndex = Math.floor(Math.random() * 5);
 var negativeNumber = Math.floor(Math.random() * 200) * -1;
 var imgFolder = path_1.default.resolve('thumb');
 var request = (0, supertest_1.default)(index_1.default);
-describe('Test Function Resize Image', function () {
+describe('Test Utilities Functions', function () {
     it('Test Resize 1', function (done) { return __awaiter(void 0, void 0, void 0, function () {
         var imgPath;
         return __generator(this, function (_a) {
@@ -64,7 +66,7 @@ describe('Test Function Resize Image', function () {
                 case 0: return [4 /*yield*/, (0, resize_1.default)(VALID_FILES[randomIndex], 300, 500)];
                 case 1:
                     _a.sent();
-                    imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_thumb.jpg");
+                    imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_500_300.jpg");
                     expect(fs_1.default.existsSync(imgPath)).toBe(true);
                     done();
                     return [2 /*return*/];
@@ -78,11 +80,46 @@ describe('Test Function Resize Image', function () {
                 case 0: return [4 /*yield*/, (0, resize_1.default)(VALID_FILES[randomIndex], 500, 800)];
                 case 1:
                     _a.sent();
-                    imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_thumb.jpg");
+                    imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_800_500.jpg");
                     expect(fs_1.default.existsSync(imgPath)).toBe(true);
                     done();
                     return [2 /*return*/];
             }
+        });
+    }); });
+    it('Test Check File-Exist function True', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var exist;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, fileExist_1.fileExist)('thumb', 'encenadaport_200_200')];
+                case 1:
+                    exist = _a.sent();
+                    expect(exist).toBe(true);
+                    done();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('Test Check File-Exist function Frue', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var exist;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, fileExist_1.fileExist)('thumb', 'Fakename_200_200')];
+                case 1:
+                    exist = _a.sent();
+                    expect(exist).toBe(false);
+                    done();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('Test Check File-Exist function Frue', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var path;
+        return __generator(this, function (_a) {
+            path = (0, fileExist_2.filePath)('thumb', 'santamonica_200_200');
+            expect(path).toBe("C:\\Full Stack\\Assignment 1\\Udacity_fullstack\\Assignment 1\\thumb\\santamonica_200_200.jpg");
+            done();
+            return [2 /*return*/];
         });
     }); });
 });
@@ -159,7 +196,7 @@ describe('Test Main API Endpoint Response', function () {
                 case 0: return [4 /*yield*/, request.get("/api/image?filename=" + VALID_FILES[randomIndex] + "\n        &height=200&width=200")];
                 case 1:
                     _a.sent();
-                    imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_thumb.jpg");
+                    imgPath = path_1.default.join(imgFolder, VALID_FILES[randomIndex] + "_200_200.jpg");
                     expect(fs_1.default.existsSync(imgPath)).toBe(true);
                     done();
                     return [2 /*return*/];
