@@ -22,7 +22,6 @@ processImg.get('/', async (req: express.Request, res: express.Response) => {
   exist = await fileExist('thumb', `${filename}_${height}_${width}`);
   if(exist) {
     res.status(200).sendFile(filePath('thumb', `${filename}_${height}_${width}`));
-    res.send(`File ${filename}_${height}_${width} already exist.`)
     return;
   }
 
@@ -37,7 +36,6 @@ processImg.get('/', async (req: express.Request, res: express.Response) => {
   }
   await resize(filename, width, height);
   res.status(200).sendFile(filePath('thumb', `${filename}_${height}_${width}`));
-  res.send(`Processing the image ${filename}.`);
 });
 
 export default processImg;

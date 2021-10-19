@@ -31,6 +31,6 @@ http://localhost:4000
 
 2. Resize endpoint
 Build the API with npm run build and then execute it with npm run start. Go to http://localhost:4000/ and then create your query `?fileName=<name_of_image>&height=<desired_height>&width=<desired_width>`
-For example: http://localhost:4000/convert?image=fjord&width=250&height=250
+For example: http://localhost:4000/api/image?filename=encenadaport&width=200&height=200
 
 ![alt text](https://github.com/ngoduyvu/Udacity_fullstack/blob/main/Assignment%201/image/resize_400_500.PNG)
