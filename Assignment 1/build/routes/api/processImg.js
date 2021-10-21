@@ -64,7 +64,6 @@ processImg.get('/', function (req, res) { return __awaiter(void 0, void 0, void 
                 exist = _a.sent();
                 if (exist) {
                     res.status(200).sendFile((0, fileExist_2.filePath)('thumb', filename + "_" + height + "_" + width));
-                    res.send("File " + filename + "_" + height + "_" + width + " already exist.");
                     return [2 /*return*/];
                 }
                 if (height <= 0 ||
@@ -78,7 +77,6 @@ processImg.get('/', function (req, res) { return __awaiter(void 0, void 0, void 
             case 3:
                 _a.sent();
                 res.status(200).sendFile((0, fileExist_2.filePath)('thumb', filename + "_" + height + "_" + width));
-                res.send("Processing the image " + filename + ".");
                 return [2 /*return*/];
         }
     });

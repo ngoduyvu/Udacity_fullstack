@@ -51,7 +51,7 @@ describe('Test Utilities Functions', () => {
   
   it('Test Check File-Exist function Frue', async (done) => {
     const path = filePath('thumb', 'santamonica_200_200');
-    expect(path).toBe("C:\\Full Stack\\Assignment 1\\Udacity_fullstack\\Assignment 1\\thumb\\santamonica_200_200.jpg");
+    expect(path).toBe(`${imgFolder}\\santamonica_200_200.jpg`);
     done();
   });
   

@@ -57,6 +57,7 @@ var VALID_FILES = [
 var randomIndex = Math.floor(Math.random() * 5);
 var negativeNumber = Math.floor(Math.random() * 200) * -1;
 var imgFolder = path_1.default.resolve('thumb');
+//const assFolder: string = path.resolve('Assignment 1');
 var request = (0, supertest_1.default)(index_1.default);
 describe('Test Utilities Functions', function () {
     it('Test Resize 1', function (done) { return __awaiter(void 0, void 0, void 0, function () {
@@ -117,7 +118,8 @@ describe('Test Utilities Functions', function () {
         var path;
         return __generator(this, function (_a) {
             path = (0, fileExist_2.filePath)('thumb', 'santamonica_200_200');
-            expect(path).toBe("C:\\Full Stack\\Assignment 1\\Udacity_fullstack\\Assignment 1\\thumb\\santamonica_200_200.jpg");
+            //expect(path).toBe(`${assFolder}\\thumb\\santamonica_200_200.jpg`);
+            expect(path).toBe(imgFolder + "\\santamonica_200_200.jpg");
             done();
             return [2 /*return*/];
         });
