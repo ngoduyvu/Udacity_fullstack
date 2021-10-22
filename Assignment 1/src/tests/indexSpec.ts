@@ -43,15 +43,15 @@ describe('Test Utilities Functions', () => {
     done();
   });
 
-  it('Test Check File-Exist function Frue', async (done) => {
+  it('Test Check File-Exist function False', async (done) => {
     const exist = await fileExist('thumb', 'Fakename_200_200');
     expect(exist).toBe(false);
     done();
   });
   
-  it('Test Check File-Exist function Frue', async (done) => {
-    const path = filePath('thumb', 'santamonica_200_200');
-    expect(path).toBe(`${imgFolder}\\santamonica_200_200.jpg`);
+  it('Test Check File-Path function Frue', async (done) => {
+    const imgPath = filePath('thumb', 'santamonica_200_200');
+    expect(imgPath).toBe(path.join(imgFolder, 'santamonica_200_200.jpg'));
     done();
   });
   
