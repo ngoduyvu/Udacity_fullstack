@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import { Pool } from 'pg'
 
-dotenv.config()
+dotenv.config()       // Initializes the environment variable
 
 const {
     POSTGRES_HOST,
