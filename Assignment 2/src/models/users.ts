@@ -11,6 +11,7 @@ export type User = {
 }
 
 export class UserStore {
+    // List Users
     async index(): Promise<User[]> {
         try {
             const sql = 'SELECT * FROM users';
@@ -23,6 +24,7 @@ export class UserStore {
         }
     }
 
+    // Create an User
     async create(user: User): Promise<User> {
         try {
             const sql = 'INSERT INTO users (id, username, password) VALUES($1, $2, $3) RETURNING *';
@@ -35,6 +37,7 @@ export class UserStore {
         }
     }
 
+    // Show an User
     async show(id: string | number): Promise<User> {
         try {
             const sql = 'SELECT * FROM users WHERE id = ($1)';
@@ -47,6 +50,7 @@ export class UserStore {
         }
     }
 
+    // Delete an User
     async delete(id: string | number): Promise<User> {
         try {
             const sql = 'DELETE FROM users WHERE id = ($1)';
@@ -59,6 +63,7 @@ export class UserStore {
         }
     }
 
+    // Authentication
     async authenticate(username: string, password: string): Promise<User | null> {
         try {
             const sql = 'SELECT password FROM users WHERE username=($1)';

@@ -9,6 +9,7 @@ export type Order= {
 }
 
 export class OrderStore {
+    // List Orders
     async index(): Promise<Order[]> {
         try {
             const sql = 'SELECT * FROM orders';
@@ -23,7 +24,7 @@ export class OrderStore {
         }
     }
 
-    // Create Order
+    // Create an Order
     async create(order: Order): Promise<Order[]> {
         try {
             const sql = 'INSERT INTO orders (id, quantity, status, user_id) VALUES($1, $2, $3, $4) RETURNING *';
@@ -36,7 +37,7 @@ export class OrderStore {
         }
     }
 
-    // Show Order
+    // Show an Order
     async show(id: string | number): Promise<Order[]> {
         try {
             const sql = 'SELECT * FROM orders WHERE id=($1)';
@@ -49,7 +50,7 @@ export class OrderStore {
         }
     }
 
-    // Delete Order
+    // Delete an Order
     async delete(id: string | number): Promise<Order[]> {
         try {
             const sql = 'DELETE FROM orders WHERE id=($1)';

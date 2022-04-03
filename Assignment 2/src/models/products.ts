@@ -8,6 +8,7 @@ export type Product = {
 }
 
 export class ProductStore {
+    // List Products
     async index(): Promise<Product[]> {
         try {
            const sql = 'SELECT * FROM products';
@@ -20,6 +21,7 @@ export class ProductStore {
         }
     }
 
+    // Show an Product
     async show(id: string | number): Promise<Product> {
         try {
             const sql = 'SELECT * FROM products WHERE id = ($1)';
@@ -32,6 +34,7 @@ export class ProductStore {
         }
     }
 
+    // Create an Product
     async create(product: Product): Promise<Product> {
         try {
             const sql = 'INSERT INTO products (id, name, price, category) VALUES ($1, $2, $3, $4) RETURNING *';
@@ -44,6 +47,7 @@ export class ProductStore {
         }
     }
 
+    // Delete an Product
     async delete(id: string | number): Promise<Product> {
         try {
             const sql = 'DELETE FROM products WHERE id = ($1)';
