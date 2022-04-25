@@ -52,3 +52,45 @@ Add JWT functionality as shown in the course. Make sure that JWTs are required f
 Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
 
 Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission.
+
+# Helpful command list
+## Node Command:
+Check your version: $ node -v
+To run index.js use: $ node src/index.js   ||  $node src/.
+Start a project: npm init  || npm init -y
+Install Express: npm install express
+Install Typescript: npm install typescript --save-dev
+Install Support packages: npm install ts-node tsc-watch --save-dev
+Run Typescript compline: npx tsc
+Install PostgresSQL: npm install pg
+Install yarn: npm install --global yarn
+
+Install Jasmine: npm install -g  jasmine
+Add Jasmine and add Typescript types: yarn add jasmine @types/jasmine
+Run Jasmine initialization: jasmine init
+
+## Postgres SQL Command:
+Open psql: psql Postgres
+Connect to a database: \c <database_name>
+Create a new database: create database <database_name>
+Get out of psql: \q
+List Role: \du
+List Database: \l
+List Relations within a database: \d
+List All tables: \dt
+
+Switch to postgres user: su postgres
+Start SQL: psql postgres
+Exit postgres: Ctrl+D
+
+## Docker Command
+List all of the image: docker ps
+Create Docker Image for postgres: docker run -d -p 5432:5432 --name "container name" -e POSTGRES_PASSWORD="your password" postgres
+Start Container: docker container start "container name"
+Connect to container: docker exec -it container-name bash
+Stop container: docker stop container-name
+Remove container: docker rm container-name
+Remove unused data: docker system prune
+
+List all of container that are run: docker container ls
+List all of container even without running: docker container ls -a
