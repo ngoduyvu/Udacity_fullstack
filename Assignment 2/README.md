@@ -55,42 +55,45 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 # Helpful command list
 ## Node Command:
-Check your version: $ node -v
-To run index.js use: $ node src/index.js   ||  $node src/.
-Start a project: npm init  || npm init -y
-Install Express: npm install express
-Install Typescript: npm install typescript --save-dev
-Install Support packages: npm install ts-node tsc-watch --save-dev
-Run Typescript compline: npx tsc
-Install PostgresSQL: npm install pg
-Install yarn: npm install --global yarn
+Check your version: $ node -v  <br/>
+To run index.js use: $ node src/index.js   ||  $node src/.  <br/>
+Start a project: npm init  || npm init -y  <br/>
+Install Express: npm install express  <br/>
+Install Typescript: npm install typescript --save-dev  <br/>
+Install Support packages: npm install ts-node tsc-watch --save-dev  <br/>
+Run Typescript compline: npx tsc  <br/>
+Install PostgresSQL: npm install pg  <br/>
+Install yarn: npm install --global yarn  <br/>
 
-Install Jasmine: npm install -g  jasmine
-Add Jasmine and add Typescript types: yarn add jasmine @types/jasmine
-Run Jasmine initialization: jasmine init
+Install Jasmine: npm install -g  jasmine  <br/>
+Add Jasmine and add Typescript types: yarn add jasmine @types/jasmine  <br/>
+Run Jasmine initialization: jasmine init  <br/>
 
 ## Postgres SQL Command:
-Open psql: psql Postgres
-Connect to a database: \c <database_name>
-Create a new database: create database <database_name>
-Get out of psql: \q
-List Role: \du
-List Database: \l
-List Relations within a database: \d
-List All tables: \dt
+Switch to the postgres user: su postgres  <br/>
+Open psql: psql Postgres  <br/>
+Connect to a database: \c <database_name>  <br/>
+Create a new database: create database <database_name>  <br/>
+Get out of psql: \q  <br/>
+List Role: \du  <br/>
+List Database: \l  <br/>
+List Relations within a database: \d  <br/>
+List All tables: \dt  <br/>
 
-Switch to postgres user: su postgres
-Start SQL: psql postgres
-Exit postgres: Ctrl+D
+Switch to postgres user: su postgres  <br/>
+Start SQL: psql postgres  <br/>
+Exit postgres: Ctrl+D  <br/>
 
 ## Docker Command
-List all of the image: docker ps
-Create Docker Image for postgres: docker run -d -p 5432:5432 --name "container name" -e POSTGRES_PASSWORD="your password" postgres
-Start Container: docker container start "container name"
-Connect to container: docker exec -it container-name bash
-Stop container: docker stop container-name
-Remove container: docker rm container-name
-Remove unused data: docker system prune
+List all of the image: docker ps  <br/>
+Create Docker Image for postgres: docker run -d -p 5432:5432 --name "container name" -e POSTGRES_PASSWORD="your password" postgres  <br/>
+Start Container: docker container start "container name"  <br/>
+Connect to container: docker exec -it container-name bash  <br/>
+Stop container: docker stop container-name  <br/>
+Remove container: docker rm container-name  <br/>
+Remove unused data: docker system prune  <br/>
 
-List all of container that are run: docker container ls
-List all of container even without running: docker container ls -a
+List all of container that are run: docker container ls  <br/>
+List all of container even without running: docker container ls -a  <br/>
+
+Run Docker Compose file: docker-compose up  <br/>
