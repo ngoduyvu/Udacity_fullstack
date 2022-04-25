@@ -1,5 +1,16 @@
 # Storefront Backend Project
 
+
+# SQL Command on the new database
+CREATE USER full_stack_user WITH PASSWORD 'fullstack_123';
+CREATE DATABASE storefront;
+CREATE DATABASE storefront_test;
+GRANT ALL PRIVILEGES ON DATABASE storefront TO full_stack_user;
+GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;
+
+# Run Migration on database
+Navigate to the Assingmnet 2 directory and run
+db-migrate up
 ## Getting Started
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
@@ -71,7 +82,7 @@ Run Jasmine initialization: jasmine init  <br/>
 
 ## Postgres SQL Command:
 Switch to the postgres user: su postgres  <br/>
-Open psql: psql Postgres  <br/>
+Open psql: psql postgres  <br/>
 Connect to a database: \c <database_name>  <br/>
 Create a new database: create database <database_name>  <br/>
 Get out of psql: \q  <br/>
@@ -79,6 +90,7 @@ List Role: \du  <br/>
 List Database: \l  <br/>
 List Relations within a database: \d  <br/>
 List All tables: \dt  <br/>
+List All Roles: \du  <br/>
 
 Switch to postgres user: su postgres  <br/>
 Start SQL: psql postgres  <br/>
