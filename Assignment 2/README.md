@@ -10,7 +10,7 @@
 
 # Run Migration on database
 Navigate to the Assingmnet 2 directory and run  <br/>
-db-migrate up
+`db-migrate up`
 ## Getting Started
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
@@ -82,7 +82,7 @@ Run Jasmine initialization: jasmine init  <br/>
 
 ## Postgres SQL Command:
 Switch to the postgres user: `su postgres`  <br/>
-Start PSQL: `psql postgres`  <br/>
+Start postgres: `psql postgres`  <br/>
 Exit postgres: Ctrl+D  <br/>
 Connect to a database: `\c <database_name>`  <br/>
 Create a new database: `create database <database_name>`  <br/>
@@ -97,7 +97,7 @@ List All Roles: `\du`  <br/>
 List all of the image: `docker ps`  <br/>
 Create Docker Image for postgres: `docker run -d -p 5432:5432 --name "container name" -e POSTGRES_PASSWORD="your password" postgres`  <br/>
 Start Container: `docker container start "container name"`  <br/>
-Connect to container: `docker exec -it container-name bash`  <br/>
+Connect to container: `docker exec -it "container name" bash`  <br/>
 Stop container: `docker stop container-name`  <br/>
 Remove container: `docker rm container-name`  <br/>
 Remove unused data: `docker system prune`  <br/>
