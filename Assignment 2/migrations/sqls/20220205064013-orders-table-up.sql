@@ -1,5 +1,5 @@
-CREATE TABLE orders (
+CREATE TABLE IF NOT EXISTS orders (
     id SERIAL PRIMARY KEY,
-    user_id BIGINT REFERENCES users(id),
-    status VARCHAR(150),
+    status VARCHAR(50),
+    user_id BIGINT REFERENCES users(id)
 );
