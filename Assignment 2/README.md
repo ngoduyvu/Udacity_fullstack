@@ -28,12 +28,13 @@ ENV=test
 POSTGRES_TEST_DB=test
 ```
 ## SQL Command to create on Postgres Server
-`CREATE USER full_stack_user WITH PASSWORD 'password123';`  <br/>
-`CREATE DATABASE storefront;`  <br/>
-`CREATE DATABASE storefront_test;`  <br/>
-`GRANT ALL PRIVILEGES ON DATABASE storefront TO full_stack_user;`  <br/>
-`GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;`  <br/>
-
+```
+CREATE USER full_stack_user WITH PASSWORD 'password123';
+CREATE DATABASE storefront;
+CREATE DATABASE storefront_test;
+GRANT ALL PRIVILEGES ON DATABASE storefront TO full_stack_user;
+GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;
+```
 ## Run Migration on database
 Navigate to the Assingmnet 2 directory and run  <br/>
 `db-migrate up`
