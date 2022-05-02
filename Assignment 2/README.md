@@ -37,6 +37,7 @@ GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;
 ```
 ## Run Migration on database
 Navigate to the Assingmnet 2 directory and run  <br/>
+Create 
 `db-migrate up`
 
 
@@ -55,6 +56,12 @@ Install yarn: `npm install --global yarn`  <br/>
 Install Jasmine: `npm install -g  jasmine`  <br/>
 Add Jasmine and add Typescript types: `yarn add jasmine @types/jasmine`  <br/>
 Run Jasmine initialization: `jasmine init`  <br/>
+
+Installl db-migrate `npm install -g db-migrate`
+Install package to the project `yarn add db-migrate db-migrate-pg`
+Create Migration `db-migrate create mythical-worlds-table --sql-file`
+Bring migration up `db-migrate up`
+Bring migration down `db-migrate down`
 
 ## Postgres SQL Command:
 Switch to the postgres user: `su postgres`  <br/>
