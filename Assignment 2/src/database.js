@@ -7,7 +7,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const pg_1 = require("pg");
 dotenv_1.default.config(); // Initializes the environment variable
 const { POSTGRES_HOST, POSTGRES_DB, POSTGRES_TEST_DB, POSTGRES_USER, POSTGRES_PASSWORD, ENV, } = process.env;
-let client;
+let client = new pg_1.Pool();
 console.log(ENV);
 if (ENV === 'test') {
     client = new pg_1.Pool({

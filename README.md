@@ -7,33 +7,33 @@ npm i typescript --save-dev
 npm init -y
 
 Add typescript, ts-node and @types/node definitions to dev dependencies
-npm i --save-dev typescript
+npm i --save-dev typescript 
 npm i --save-dev ts-node 
 npm i --save-dev @types/node
 
-Install Jasmine
-npm i jasmine
-npm i jasmine-spec-reporter
-npm i --save-dev @types/jasmine
+** Jasmine **
+Install Jasmine: npm i jasmine <br>
+Add a reporter for outputting Jasmine results to the terminal: npm i jasmine-spec-reporter <br>
+Add type definitions for Jasmine with: npm i --save-dev @types/jasmine <br>
 
-Install Express
-npm i express
-npm i --save-dev @types/express
+** Express **
+Install express: npm i express <br>
+npm i --save-dev @types/express <br>
 
-Install nodemon
-npm i --save-dev nodemon
+** Nodemon **
+Install nodemon: npm i --save-dev nodemon
 
-Install db-migrate
-npm install -g db-migrate
+** Db-migrate **
+Install db-migrate: npm install -g db-migrate
 yarn add db-migrate db-migrate-pg
 
-Install jsonwebtoken
-yarn add jsonwebtoken
-npm i --save-dev @types/jsonwebtoken
+** Jsonwebtoken **
+Install jsonwebtoken: yarn add jsonwebtoken <br>
+Install jsonwebtoken type definition: npm i --save-dev @types/jsonwebtoken <br>
 
-Install bcrypt
-yarn add bcrypt
-npm i --save-dev @types/bcrypt
+** Bcrypt **
+Install bcrypt: yarn add bcrypt <br>
+Install bcrypt type definition: npm i --save-dev @types/bcrypt <br>
 
-Install dotenv
-npm i dotenv
+** Dotenv **
+Install dotenv: npm i dotenv

@@ -42,7 +42,7 @@ class OrderStore {
             return result.rows[0];
         }
         catch (err) {
-            throw new Error(`Could not get the order ${id}. Error: ${err}`);
+            throw new Error(`Could not get the order ${id}. Error: ${err}.`);
         }
     }
     // Delete an Order
@@ -55,7 +55,7 @@ class OrderStore {
             return result.rows[0];
         }
         catch (err) {
-            throw new Error(`Could not delete order ${id}. Error: ${err}`);
+            throw new Error(`Could not delete order ${id}. Error: ${err}.`);
         }
     }
 }
