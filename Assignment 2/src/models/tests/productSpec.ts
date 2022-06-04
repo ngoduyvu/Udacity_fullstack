@@ -3,6 +3,16 @@ import { Product, ProductStore } from "../products";
 const product = new ProductStore();
 
 describe("Product Model", () => {
+    beforeAll( async () => {
+            const result = await product.create({
+                id: 1,
+                name: "Samsung Galaxy S10",
+                price: 14000,
+                category: 'Electronic',
+            });
+
+    });
+
     it('Should have an index method', () => {
         expect(product.index).toBeDefined();
     });
@@ -19,12 +29,12 @@ describe("Product Model", () => {
         expect(product.delete).toBeDefined();
     });
 
-    it('Create method should add a product', async() =>{
-        const result = await product.create({
-            id: 1,
-            name: "Samsung Galaxy S10",
-            price: 14000,
-            category: 'Electronic',
-        });
-    });
+    // it('Create method should add a product', async() =>{
+    //     const result = await product.create({
+    //         id: 1,
+    //         name: "Samsung Galaxy S10",
+    //         price: 14000,
+    //         category: 'Electronic',
+    //     });
+    // });
 });

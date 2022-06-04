@@ -1,6 +1,7 @@
 import express, {Request, Response} from 'Express';
 import {Product, ProductStore} from "../models/products";
-import authenticate from '../middleware/verifyToken';
+import verifyAuthToken from '../middleware/verifyToken';
+import { JsonWebTokenError } from 'jsonwebtoken';
 
 const store = new ProductStore();
 
@@ -9,7 +10,7 @@ const indexProducts = async (_req: Request, res: Response) => {
         const result = await store.index();
         res.json(result);
     } catch (err) {
-        res.status(400);
+        res.status(401);
         res.json(err);
     };
 };
@@ -19,7 +20,7 @@ const showProducts = async (req: Request, res: Response) => {
         const result = await store.show(req.params.id);
         res.json(result);
     } catch (err) {
-        res.status(400);
+        res.status(401);
         res.json(err);
     };
 };
@@ -31,11 +32,12 @@ const createProducts = async (req: Request, res: Response) => {
         category: req.body.category,
     };
 
+    
     try {
         const result = await store.create(product);
         res.json(result);
     } catch (err) {
-        res.status(400);
+        res.status(401);
         res.json(err);
     };
 };
@@ -45,7 +47,7 @@ const deleteProducts = async (req: Request, res: Response) => {
         const result = await store.delete(req.params.id);
         res.json(result);
     } catch (err) {
-        res.status(400);
+        res.status(401);
         res.json(err);
     };
 }
@@ -53,8 +55,8 @@ const deleteProducts = async (req: Request, res: Response) => {
 const product_rounter = (app: express.Application) => {
     app.get('/products', indexProducts);
     app.get('/products/:id', showProducts);
-    app.post('/products', authenticate, createProducts);
-    app.delete('/product/delete/:id', authenticate, deleteProducts);
+    app.post('/products', verifyAuthToken, createProducts);
+    app.delete('/product/delete/:id', verifyAuthToken, deleteProducts);
 };
 
 export default product_rounter;

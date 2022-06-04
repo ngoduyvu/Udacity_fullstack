@@ -40,6 +40,8 @@ Navigate to the Assingmnet 2 directory and run  <br/>
 Create 
 `db-migrate up`
 
+`db-migrate create storefront_test --sql-file`
+
 
 # Helpful command list
 ## Node Command:
@@ -64,17 +66,16 @@ Bring migration up `db-migrate up`
 Bring migration down `db-migrate down`
 
 ## Postgres SQL Command:
-Switch to the postgres user: `su postgres`  <br/>
+Switch to the postgres user: `su username` (the username and password are defined in .env file) <br/>
 Start postgres: `psql postgres`  <br/>
 Exit postgres: Ctrl+D  <br/>
 Connect to a database: `\c <database_name>`  <br/>
 Create a new database: `create database <database_name>`  <br/>
 Get out of psql: `\q`  <br/>
-List Role: `\du` <br/>
+List All Roles: `\du`  <br/>
 List Database: `\l`  <br/>
 List Relations within a database: `\d`  <br/>
 List All tables: `\dt`  <br/>
-List All Roles: `\du`  <br/>
 
 ## Docker Command
 List all of the image: `docker ps`  <br/>
@@ -88,4 +89,6 @@ Remove unused data: `docker system prune`  <br/>
 List all of container that are run: `docker container ls`  <br/>
 List all of container even without running: `docker container ls -a`  <br/>
 
-Run Docker Compose file: `docker-compose up`  <br/>
+Run Docker Compose file: `docker-compose up -d`  <br/>
+Check if configure of Compose file: `docker-compose config`  <br/>
+Connect with Postgres Database created by Compose file `psql --host="hostname in .env" --username="username in .env" --dbname="dbname in .env"` where host, username and dbname from .env file  <br/>

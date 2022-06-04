@@ -23,8 +23,8 @@ describe("Order Model", () => {
     it('Create method should add a user', async() => {
         const result = await user.create({
             id: 1,
-            username: 'test',
-            password: 'fullstack123'
+            username: 'full_stack_user',
+            password: 'password123'
         });
         expect(result).toBeTrue();
     });
