@@ -8,7 +8,7 @@
     "start": "nodemon src/server.ts",
     "watch": "set ENV=dev&& tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
     "jasmine": "jasmine",
-    "test": "set ENV=test&& npm run migrate:up:test && npm run build && jasmine && npm run migrate:down:test",
+    "test": "set ENV=test&& npm run migrate-up && npm run --experimental-modulesabuild && jasmine && npm run migrate-down",
     "tsc": "tsc",
     "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "lint": "eslint . --ext .ts",

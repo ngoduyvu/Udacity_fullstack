@@ -9,7 +9,7 @@ const server_1 = __importDefault(require("../../server"));
 const request = (0, supertest_1.default)(server_1.default);
 const product = new products_1.ProductStore();
 let testUser;
-describe("Product Model", () => {
+describe('Product Model', () => {
     beforeAll(async () => {
         testUser = await request.post('/users').send({
             username: 'test-user',

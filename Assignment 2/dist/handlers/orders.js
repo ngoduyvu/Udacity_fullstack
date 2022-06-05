@@ -15,7 +15,6 @@ const indexOrders = async (_req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const showOrders = async (req, res) => {
     try {
@@ -32,7 +31,7 @@ const createOrders = async (req, res) => {
         id: req.body.id,
         quantity: req.body.quantity,
         status: req.body.status,
-        user_id: req.body.user_id,
+        user_id: req.body.user_id
     };
     try {
         const result = await store.create(order);
@@ -42,7 +41,6 @@ const createOrders = async (req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const deleteOrders = async (req, res) => {
     try {

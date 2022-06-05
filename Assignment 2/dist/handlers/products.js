@@ -15,7 +15,6 @@ const indexProducts = async (_req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const showProducts = async (req, res) => {
     try {
@@ -26,13 +25,12 @@ const showProducts = async (req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const createProducts = async (req, res) => {
     const product = {
         name: req.body.name,
         price: req.body.price,
-        category: req.body.category,
+        category: req.body.category
     };
     try {
         const result = await store.create(product);
@@ -42,7 +40,6 @@ const createProducts = async (req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const deleteProducts = async (req, res) => {
     try {
@@ -53,7 +50,6 @@ const deleteProducts = async (req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const product_rounter = (app) => {
     app.get('/products', indexProducts);

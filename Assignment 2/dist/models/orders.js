@@ -30,7 +30,12 @@ class OrderStore {
             try {
                 const sql = 'INSERT INTO orders (id, quantity, status, user_id) VALUES($1, $2, $3, $4) RETURNING *';
                 const conn = await database_1.default.connect();
-                const result = await conn.query(sql, [order.id, order.quantity, order.status, order.user_id]);
+                const result = await conn.query(sql, [
+                    order.id,
+                    order.quantity,
+                    order.status,
+                    order.user_id
+                ]);
                 conn.release();
                 return result.rows[0];
             }

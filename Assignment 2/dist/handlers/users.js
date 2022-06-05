@@ -16,7 +16,6 @@ const indexUsers = async (_req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const showUsers = async (req, res) => {
     try {
@@ -27,14 +26,13 @@ const showUsers = async (req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const createUsers = async (req, res) => {
     const user = {
         username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        password: req.body.password,
+        password: req.body.password
     };
     try {
         const result = await store.create(user);
@@ -45,7 +43,6 @@ const createUsers = async (req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const deleteUsers = async (req, res) => {
     try {
@@ -56,7 +53,6 @@ const deleteUsers = async (req, res) => {
         res.status(401);
         res.json(err);
     }
-    ;
 };
 const authenticate = async (req, res) => {
     try {
