@@ -63,7 +63,6 @@ GRANT ALL PRIVILEGES ON DATABASE storefront TO full_stack_user;
 GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;
 ```
 ## Run Migration on database
-Navigate to the Assingmnet 2 directory and run  <br/>
-Create 
-Run Migrate tables: `npm run migrate-up`
+Before run build <br/>
+Run Migrate tables: `npm run migrate-up` <br/>
 Reset database by dropping tables: `npm run migrate-down` <br/>
