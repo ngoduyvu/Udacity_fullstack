@@ -1,9 +1,22 @@
 import { User, UserStore } from "../users";
 import client from "../../database";
+import supertest from 'supertest';
+import app from '../../server';
 
+const request = supertest(app);
 const user = new UserStore();
+let testUser: { text: string };
 
 describe("Order Model", () => {
+    beforeAll(async() => {
+        testUser = await request.post('/users').send({
+            username: 'test-user',
+            firstName: 'Ngo',
+            lastName: 'Duy Vu',
+            password: '12312'
+        })
+    });
+
     it('Should have an index method', () => {
         expect(user.index).toBeDefined();
     });
@@ -20,14 +33,16 @@ describe("Order Model", () => {
         expect(user.delete).toBeDefined();
     });
     
-    it('Create method should add a user', async() => {
-        const result = await user.create({
-            id: 1,
-            username: 'full_stack_user',
-            password: 'password123'
-        });
-        expect(result).toBeTrue();
-    });
+    // it('Create method should add a user', async() => {
+    //     const result = await user.create({
+
+    //         username: 'full_stack_user',
+    //         firstName: 'Jack',
+    //         lastName: 'Sarrow',
+    //         password: 'password123'
+    //     });
+    //     expect(result).toBeTrue();
+    // });
 
 
 });

@@ -1,2 +1,1 @@
-IF EXISTS (products)
-DROP TABLE products;
+DROP TABLE IF EXISTS products;

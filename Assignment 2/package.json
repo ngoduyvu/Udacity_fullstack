@@ -12,8 +12,8 @@
     "tsc": "tsc",
     "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "lint": "eslint . --ext .ts",
-    "migrate:up:test": "db-migrate up --env test",
-    "migrate:down:test": "db-migrate reset --env test"
+    "migrate-up": "db-migrate up --env test",
+    "migrate-down": "db-migrate reset --env test"
   },
   "author": "Ngo Duy Vu",
   "license": "ISC",
@@ -29,7 +29,6 @@
     "jsonwebtoken": "^8.5.1",
     "lts": "^1.2.0",
     "pg": "^8.5.1",
-    "typescript": "^4.6.4",
     "yarn": "^1.22.17"
   },
   "devDependencies": {
@@ -49,8 +48,9 @@
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
     "supertest": "^6.2.3",
-    "ts-node": "^10.8.0",
-    "tsc-watch": "^5.0.3"
+    "ts-node": "^10.8.1",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.7.3"
   },
   "keywords": []
 }
