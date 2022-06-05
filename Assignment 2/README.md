@@ -1,16 +1,15 @@
 # Storefront Backend Project
 ## Scripts
-
-** Install all requirements ** <br/>
-. `npm i` <br/>
-** Unit Tests ** <br/>
-. `npm run test` <br/>
-** Run Build ** <br/>
-. `npm run build` <br/>
-** Check Style by Prettier ** <br/>
-. `npm run prettier` <br/>
-** Check code by Linter ** <br/>
-. `npm run lint` <br/>
+**Install all requirements** <br/>
+- `npm i` <br/>
+**Unit Tests** <br/>
+- `npm run test` <br/>
+**Run Build** <br/>
+- `npm run build` <br/>
+**Check Style by Prettier** <br/>
+- `npm run prettier` <br/>
+**Check code by Linter** <br/>
+- `npm run lint` <br/>
 
 
 ## Setting Up
