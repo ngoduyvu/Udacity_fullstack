@@ -1,16 +1,16 @@
-import { User, UserStore } from '../users';
-import client from '../../database';
+import { User, UserStore } from '../models/users';
+import client from '../database';
 import supertest from 'supertest';
-import app from '../../server';
+import app from '../server';
 
 const request = supertest(app);
 const user = new UserStore();
 let testUser: { text: string };
 
-describe('Order Model', () => {
+describe('Users Model', () => {
   beforeAll(async () => {
     testUser = await request.post('/users').send({
-      username: 'test-user',
+      username: 'test-user-1',
       firstName: 'Ngo',
       lastName: 'Duy Vu',
       password: '12312'
@@ -33,14 +33,14 @@ describe('Order Model', () => {
     expect(user.delete).toBeDefined();
   });
 
-  // it('Create method should add a user', async() => {
-  //     const result = await user.create({
-
-  //         username: 'full_stack_user',
-  //         firstName: 'Jack',
-  //         lastName: 'Sarrow',
-  //         password: 'password123'
-  //     });
-  //     expect(result).toBeTrue();
-  // });
+  it('Create method should add a user', async() => {
+      const result = await user.create({
+          username: 'test-user-2',
+          firstName: 'Jack',
+          lastName: 'Sarrow',
+          password: 'password123'
+      });
+      expect(result).toBeTrue();
+  });
 });
+

@@ -31,7 +31,7 @@ class UserStore {
     async create(user) {
         if (database_1.default) {
             try {
-                const sql = 'INSERT INTO users (username, firstName, lastName, password) VALUES($1, $2, $3, $4) RETURNING *';
+                const sql = 'INSERT INTO users (username, firstName, lastName, password) VALUES ($1, $2, $3, $4) RETURNING *';
                 const conn = await database_1.default.connect();
                 const hash = bcrypt_1.default.hashSync(user.password + pepper, parseInt(saltRounds));
                 const result = await conn.query(sql, [

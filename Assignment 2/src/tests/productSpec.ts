@@ -1,6 +1,6 @@
-import { Product, ProductStore } from '../products';
+import { Product, ProductStore } from '../models/products';
 import supertest from 'supertest';
-import app from '../../server';
+import app from '../server';
 
 const request = supertest(app);
 const product = new ProductStore();
