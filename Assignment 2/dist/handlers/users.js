@@ -37,6 +37,7 @@ const createUsers = async (req, res) => {
     try {
         const result = await store.create(user);
         var token = jsonwebtoken_1.default.sign({ user: result }, process.env.TOKEN_SECRET);
+        console.log(token);
         res.json({ ...result, token: `Token ${token}` });
     }
     catch (err) {
@@ -65,11 +66,11 @@ const authenticate = async (req, res) => {
         res.json(err);
     }
 };
-const user_router = (app) => {
+const user_routers = (app) => {
     app.get('/users', indexUsers);
     app.get('/users/:username', showUsers);
     app.post('/users', verifyToken_1.default, createUsers);
     app.post('/users/authenticate', authenticate);
     app.delete('/users/delete/:id', verifyToken_1.default, deleteUsers);
 };
-exports.default = user_router;
+exports.default = user_routers;

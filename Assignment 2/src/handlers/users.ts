@@ -67,12 +67,12 @@ const authenticate = async (req: Request, res: Response) => {
   }
 };
 
-const user_router = (app: express.Application) => {
+const user_routers = (app: express.Application) => {
   app.get('/users', indexUsers);
   app.get('/users/:username', showUsers);
-  app.post('/users', verifyAuthToken, createUsers);
+  app.post('/users', createUsers);
   app.post('/users/authenticate', authenticate);
   app.delete('/users/delete/:id', verifyAuthToken, deleteUsers);
 };
 
-export default user_router;
+export default user_routers;

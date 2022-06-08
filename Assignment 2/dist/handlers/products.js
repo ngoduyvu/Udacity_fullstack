@@ -51,10 +51,10 @@ const deleteProducts = async (req, res) => {
         res.json(err);
     }
 };
-const product_rounter = (app) => {
+const product_rounters = (app) => {
     app.get('/products', indexProducts);
     app.get('/products/:id', showProducts);
     app.post('/products', verifyToken_1.default, createProducts);
     app.delete('/product/delete/:id', verifyToken_1.default, deleteProducts);
 };
-exports.default = product_rounter;
+exports.default = product_rounters;

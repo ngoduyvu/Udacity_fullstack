@@ -51,11 +51,11 @@ const deleteProducts = async (req: Request, res: Response) => {
   }
 };
 
-const product_rounter = (app: express.Application) => {
+const product_rounters = (app: express.Application) => {
   app.get('/products', indexProducts);
   app.get('/products/:id', showProducts);
   app.post('/products', verifyAuthToken, createProducts);
   app.delete('/product/delete/:id', verifyAuthToken, deleteProducts);
 };
 
-export default product_rounter;
+export default product_rounters;
