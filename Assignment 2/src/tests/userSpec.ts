@@ -5,6 +5,7 @@ import app from '../server';
 
 const request = supertest(app);
 const user = new UserStore();
+
 let testUser_1: { text: string };
 
 const testUser_2: User = {
@@ -14,8 +15,15 @@ const testUser_2: User = {
   password: 'Private-Caribbean'
 };
 
+const testUser_3: User = {
+  username: 'test-user-3',
+  firstName: 'Amber',
+  lastName: 'Head',
+  password: 'Aquaman'
+};
 
-describe('Users Model', () => {
+
+describe('Test User Model Method Exists', () => {
   beforeAll(async () => {
     testUser_1 = await request.post('/users').send({
       username: 'test-user-1',
@@ -40,39 +48,54 @@ describe('Users Model', () => {
   it('Should have a delete method', () => {
     expect(user.delete).toBeDefined();
   });
+});
 
-  it('Should get the user test-user-1', async () => {
-    const result = await user.index();
-    expect(result.length).toBeGreaterThan(0);
-  });
-
-
-  it('Should create the user test-user-2 and encryp password', async () => {
+describe('Test User Model Method Functional', () => {
+  it('Should create the user test-user and encryp password', async () => {
     const spy = spyOn(bcrypt, 'hashSync').and.callThrough();
     const result: User = await user.create(testUser_2);
     expect(result.username).toEqual(testUser_2.username);
     expect(spy).toHaveBeenCalled();
   });
 
+  it('Should have user in the table', async () => {
+    const result = await user.index();
+    expect(result.length).toBeGreaterThan(0);
+  });
+
+  it('Should return 200 when searching for the test-user', async () => {
+    const response = await request.get('/users/test-user_2');
+    expect(response.statusCode).toBe(200);
+  });
+});
+
+describe('Test User API Endpoint Response', () => {
+//   it('Should create a user in the Endpoint', async () => {
+//     const response = await request
+//       .post('/users')
+//       .send(testUser_3)
+//       .set({ Authorization: JSON.parse(testUser_1.text).token });
+//     expect(response.status).toEqual(200);
+//   });
+
+
   it('Should authenticate fail', async () => {
-    const result = await user.authenticate(testUser_2.username, 'wrong password');
+    const result = await user.authenticate(testUser_3.username, 'wrong password');
     expect(result).toBeFalsy();
   });
 
-  // it('Should get the  the user test-user-2', async () => {
-  //   const result = await user.index();
-  //   expect(result.length).toBeGreaterThan(0);
-  // });
-  // it('Create method should add a user', async() => {
-  //     const result = await user.create({
-  //         username: 'test-user-2',
-  //         firstName: 'Jack',
-  //         lastName: 'Sarrow',
-  //         password: 'password123'
-  //     });
-  //     expect(result.username).toBeTrue(user.username);
-  // });
+  it('Should authenticate an user', async () => {
+    const response = await request
+      .post('/users/authenticate')
+      .send({ username: 'test-user-3', password: 'assignment 2' });
+    const result = JSON.parse(response.text);
+    expect(result.token).toBeTruthy();
+  });
 
-
+  // it('Should return 200 when delete user', async () => {
+  //   const response = await request
+  //   .delete('/users/delete/1')
+  //   .set({ Authorization: JSON.parse(testUser_1.text).token });
+  //   expect(response.statusCode).toBe(200);
+  // });
 });
-

@@ -14,6 +14,9 @@ app.get('/', function (req: Request, res: Response) {
 });
 
 user_routers(app);
+product_rounters(app);
+order_routes(app);
+
 
 app.listen(3000, function () {
   console.log(`starting app on: ${address}`);

@@ -202,13 +202,13 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-17.0.30.tgz"
   integrity sha512-oNBIZjIqyHYP8VCNAV9uEytXVeXG2oR0w9lgAXro20eugRQfY002qr3CUl6BAe+Yf/z3CRjPdz27Pu6WWtuSRw==
 
-"@types/pg@^7.14.7":
-  version "7.14.11"
-  resolved "https://registry.npmjs.org/@types/pg/-/pg-7.14.11.tgz"
-  integrity sha512-EnZkZ1OMw9DvNfQkn2MTJrwKmhJYDEs5ujWrPfvseWNoI95N8B4HzU/Ltrq5ZfYxDX/Zg8mTzwr6UAyTjjFvXA==
+"@types/pg@^8.6.5":
+  version "8.6.5"
+  resolved "https://registry.npmjs.org/@types/pg/-/pg-8.6.5.tgz"
+  integrity sha512-tOkGtAqRVkHa/PVZicq67zuujI4Oorfglsr2IbKofDwBSysnaqSx7W1mDqFqdkGE6Fbgh+PZAl0r/BWON/mozw==
   dependencies:
     "@types/node" "*"
-    pg-protocol "^1.2.0"
+    pg-protocol "*"
     pg-types "^2.2.0"
 
 "@types/qs@*":
@@ -523,7 +523,7 @@ bluebird@^3.1.1:
   resolved "https://registry.npmjs.org/bluebird/-/bluebird-3.7.2.tgz"
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
 
-body-parser@1.20.0, body-parser@^1.19.0:
+body-parser@1.20.0, body-parser@^1.20.0:
   version "1.20.0"
   resolved "https://registry.npmjs.org/body-parser/-/body-parser-1.20.0.tgz"
   integrity sha512-DfJ+q6EPcGKZD1QWUjSpqp+Q7bDQTsQIF4zfUAtZ6qk+H/3/QRhg9CEp39ss+/T2vw0+HaidC0ecJj/DRLIaKg==
@@ -1393,7 +1393,7 @@ db-migrate-base@^2.3.0:
 
 db-migrate-pg@^1.2.2:
   version "1.2.2"
-  resolved "https://registry.yarnpkg.com/db-migrate-pg/-/db-migrate-pg-1.2.2.tgz#66436dbad0ba398c05851d200f768db6b2e5bc1a"
+  resolved "https://registry.npmjs.org/db-migrate-pg/-/db-migrate-pg-1.2.2.tgz"
   integrity sha512-+rgrhGNWC2SzcfweopyZqOQ1Igz1RVFMUZwUs6SviHpOUzFwb0NZWkG0pw1GaO+JxTxS7VJjckUWkOwZbVYVag==
   dependencies:
     bluebird "^3.1.1"
@@ -1408,7 +1408,7 @@ db-migrate-shared@^1.2.0:
 
 db-migrate@^0.11.13:
   version "0.11.13"
-  resolved "https://registry.yarnpkg.com/db-migrate/-/db-migrate-0.11.13.tgz#b9e5b242c62e82ef8ed2b29e118698813e953d67"
+  resolved "https://registry.npmjs.org/db-migrate/-/db-migrate-0.11.13.tgz"
   integrity sha512-OE/bbDo/mQvLmZrui/2jNAiAECJROSURCOU5xs6qKr3FvtUE2O6b0xBUI6WyAAKdili3LJQHFlpqugiYCGTSBA==
   dependencies:
     balanced-match "^1.0.0"
@@ -1536,7 +1536,7 @@ dot-prop@^5.2.0:
 
 dotenv@^16.0.1:
   version "16.0.1"
-  resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.1.tgz#8f8f9d94876c35dac989876a5d3a82a267fdce1d"
   integrity sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==
 
 dotenv@^5.0.1:
@@ -2476,10 +2476,10 @@ jasmine-core@~2.99.0:
   resolved "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.99.1.tgz"
   integrity sha1-5kAN8ea1bhMLYcS80JPap/boyhU=
 
-jasmine-spec-reporter@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/jasmine-spec-reporter/-/jasmine-spec-reporter-6.0.0.tgz"
-  integrity sha512-MvTOVoMxDZAftQYBApIlSfKnGMzi9cj351nXeqtnZTuXffPlbONN31+Es7F+Ke4okUeQ2xISukt4U1npfzLVrQ==
+jasmine-spec-reporter@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/jasmine-spec-reporter/-/jasmine-spec-reporter-7.0.0.tgz"
+  integrity sha512-OtC7JRasiTcjsaCBPtMO0Tl8glCejM4J4/dNuOJdA8lBjz4PmWjYQ6pzb0uzpBNAWJMDudYuj9OdXJWqM2QTJg==
   dependencies:
     colors "1.4.0"
 
@@ -2492,12 +2492,12 @@ jasmine-suite-reporter@^1.0.5:
     jasmine "^2.4.1"
     lodash "^4.5.0"
 
-jasmine-ts@^0.3.0:
-  version "0.3.3"
-  resolved "https://registry.npmjs.org/jasmine-ts/-/jasmine-ts-0.3.3.tgz"
-  integrity sha512-ISBmhSe1imdT2V3u681YgIIlpnt68dhdu8l94JeWfL4sYE67bfoHj2Coc1k1ND3u+DxQcHMTn8nCZ7Pr3dV6TQ==
+jasmine-ts@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.npmjs.org/jasmine-ts/-/jasmine-ts-0.4.0.tgz"
+  integrity sha512-bIAWJKUwxfuZfGI1ctEbny7+dsyFzsN0eLzOokxh0qIUCofai2WUEKoe3MMllkGEBXJzbEVYr2IyhJBv4j7SBA==
   dependencies:
-    yargs "^16.2.0"
+    yargs "^17.0.1"
 
 jasmine@^2.4.1:
   version "2.99.0"
@@ -3231,7 +3231,7 @@ pg-pool@^3.5.1:
   resolved "https://registry.npmjs.org/pg-pool/-/pg-pool-3.5.1.tgz"
   integrity sha512-6iCR0wVrro6OOHFsyavV+i6KYL4lVNyYAB9RD18w66xSzN+d8b66HiwuP30Gp1SH5O9T82fckkzsRjlrhD0ioQ==
 
-pg-protocol@^1.2.0, pg-protocol@^1.5.0:
+pg-protocol@*, pg-protocol@^1.5.0:
   version "1.5.0"
   resolved "https://registry.npmjs.org/pg-protocol/-/pg-protocol-1.5.0.tgz"
   integrity sha512-muRttij7H8TqRNu/DxrAJQITO4Ac7RmX3Klyr/9mJEOBeIpgnF8f9jAfRz5d3XwQZl5qBjF9gLsUtMPJE0vezQ==
@@ -3247,7 +3247,7 @@ pg-types@^2.1.0, pg-types@^2.2.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@^8.0.3, pg@^8.5.1:
+pg@^8.0.3, pg@^8.7.3:
   version "8.7.3"
   resolved "https://registry.npmjs.org/pg/-/pg-8.7.3.tgz"
   integrity sha512-HPmH4GH4H3AOprDJOazoIcpI49XFsHCe8xlrjHkWiapdbHK+HLtbm/GQzXYAZwmPju/kzKhjaSfMACG+8cgJcw==
@@ -4400,10 +4400,10 @@ yargs-parser@^18.1.2:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
-yargs-parser@^20.2.2:
-  version "20.2.9"
-  resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-20.2.9.tgz"
-  integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
+yargs-parser@^21.0.0:
+  version "21.0.1"
+  resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.0.1.tgz"
+  integrity sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==
 
 yargs-parser@^4.2.0:
   version "4.2.1"
@@ -4429,18 +4429,18 @@ yargs@^15.3.1:
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
 
-yargs@^16.2.0:
-  version "16.2.0"
-  resolved "https://registry.npmjs.org/yargs/-/yargs-16.2.0.tgz"
-  integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
+yargs@^17.0.1:
+  version "17.5.1"
+  resolved "https://registry.npmjs.org/yargs/-/yargs-17.5.1.tgz"
+  integrity sha512-t6YAJcxDkNX7NFYiVtKvWUz8l+PaKTLiL63mJYWR2GnHq2gjEWISzsLp9wg3aY36dY1j+gfIEL3pIF+XlJJfbA==
   dependencies:
     cliui "^7.0.2"
     escalade "^3.1.1"
     get-caller-file "^2.0.5"
     require-directory "^2.1.1"
-    string-width "^4.2.0"
+    string-width "^4.2.3"
     y18n "^5.0.5"
-    yargs-parser "^20.2.2"
+    yargs-parser "^21.0.0"
 
 yargs@^6.5.0:
   version "6.6.0"
