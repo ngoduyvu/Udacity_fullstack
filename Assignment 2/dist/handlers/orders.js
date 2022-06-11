@@ -28,7 +28,6 @@ const showOrders = async (req, res) => {
 };
 const createOrders = async (req, res) => {
     const order = {
-        id: req.body.id,
         quantity: req.body.quantity,
         status: req.body.status,
         user_id: req.body.user_id

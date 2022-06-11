@@ -61,14 +61,6 @@ describe('Test Product Model Method Functional', () => {
     });
 });
 describe('Test Product API Endpoint Response', () => {
-    // beforeAll(async () => {
-    //   testUser = await request.post('/users').send({
-    //     username: 'test-user',
-    //     firstName: 'Ngo',
-    //     lastName: 'Duy Vu',
-    //     password: '12312'
-    //   });
-    // });
     // Test Create
     it('Should create a product in the Endpoint', async () => {
         const response = await request
@@ -83,10 +75,10 @@ describe('Test Product API Endpoint Response', () => {
         const result = JSON.parse(response.text);
         expect(result.name).toEqual('Iphone');
         expect(result.price).toEqual(24000);
-        expect(result.category).toEqual("Electronic");
+        expect(result.category).toEqual('Electronic');
     });
     // Test Index
-    it('Should get product by ID in the Endpoint', async () => {
+    it('Should list product in the Endpoint', async () => {
         const response = await request.get('/products/');
         const result = JSON.parse(response.text);
         expect(result.length).toBeTruthy();

@@ -62,12 +62,10 @@ describe('Test Product Model Method Exists', () => {
   });
 
   it('Should Delete product which has ID 1', async () => {
-    product.delete(1)
+    product.delete(1);
     const result = await product.index();
     expect(result.length).toEqual(0);
   });
-
-
 });
 
 describe('Test Product API Endpoint Response', () => {
@@ -86,12 +84,11 @@ describe('Test Product API Endpoint Response', () => {
     const result = JSON.parse(response.text);
     expect(result.name).toEqual('Iphone');
     expect(result.price).toEqual(24000);
-    expect(result.category).toEqual("Electronic");
+    expect(result.category).toEqual('Electronic');
   });
 
-  
   // Test Index
-  it('Should get product by ID in the Endpoint', async () => {
+  it('Should list product in the Endpoint', async () => {
     const response = await request.get('/products/');
     const result = JSON.parse(response.text);
     expect(result.length).toBeTruthy();
@@ -104,5 +101,4 @@ describe('Test Product API Endpoint Response', () => {
       .set({ Authorization: JSON.parse(testUser.text).token });
     expect(response.status).toEqual(200);
   });
-
 });

@@ -73,7 +73,7 @@ class UserStore {
     async delete(id) {
         if (database_1.default) {
             try {
-                const sql = 'DELETE FROM users WHERE id = ($1)';
+                const sql = 'DELETE FROM users WHERE username = ($1)';
                 const conn = await database_1.default.connect();
                 const result = await conn.query(sql, [id]);
                 conn.release();

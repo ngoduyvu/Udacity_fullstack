@@ -26,7 +26,6 @@ const showOrders = async (req: Request, res: Response) => {
 
 const createOrders = async (req: Request, res: Response) => {
   const order: Order = {
-    id: req.body.id,
     quantity: req.body.quantity,
     status: req.body.status,
     user_id: req.body.user_id

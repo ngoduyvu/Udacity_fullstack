@@ -69,7 +69,7 @@ const authenticate = async (req: Request, res: Response) => {
 
 const user_routers = (app: express.Application) => {
   app.get('/users', indexUsers);
-  app.get('/users/:username', showUsers);
+  app.get('/users/:username', verifyAuthToken, showUsers);
   app.post('/users', createUsers);
   app.post('/users/authenticate', authenticate);
   app.delete('/users/delete/:id', verifyAuthToken, deleteUsers);

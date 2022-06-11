@@ -2,10 +2,10 @@ import { Client } from 'pg';
 import client from '../database';
 
 export type Order = {
-  id: number | string;
+  id?: number | string;
   quantity: number;
   status: string;
-  user_id: number;
+  user_id: number | string;
 };
 
 export class OrderStore {
@@ -29,14 +29,13 @@ export class OrderStore {
   }
 
   // Create an Order
-  async create(order: Order): Promise<Order[]> {
+  async create(order: Order): Promise<Order> {
     if (client) {
       try {
         const sql =
-          'INSERT INTO orders (id, quantity, status, user_id) VALUES($1, $2, $3, $4) RETURNING *';
+          'INSERT INTO orders (quantity, status, user_id) VALUES($1, $2, $3) RETURNING *';
         const conn = await client.connect();
         const result = await conn.query(sql, [
-          order.id,
           order.quantity,
           order.status,
           order.user_id
@@ -52,7 +51,7 @@ export class OrderStore {
   }
 
   // Show an Order
-  async show(order_id: string | number): Promise<Order[]> {
+  async show(order_id: string | number): Promise<Order> {
     if (client) {
       try {
         const sql = 'SELECT * FROM orders WHERE user_id=($1)';

@@ -67,7 +67,7 @@ const authenticate = async (req, res) => {
 };
 const user_routers = (app) => {
     app.get('/users', indexUsers);
-    app.get('/users/:username', showUsers);
+    app.get('/users/:username', verifyToken_1.default, showUsers);
     app.post('/users', createUsers);
     app.post('/users/authenticate', authenticate);
     app.delete('/users/delete/:id', verifyToken_1.default, deleteUsers);
