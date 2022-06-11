@@ -17,7 +17,7 @@ const orderTest_1 = {
 const orderTest_2 = {
     quantity: 4,
     status: 'Out of Stock',
-    user_id: '2',
+    user_id: 2,
 };
 describe('Test Order Model Method Exists', () => {
     beforeAll(async () => {

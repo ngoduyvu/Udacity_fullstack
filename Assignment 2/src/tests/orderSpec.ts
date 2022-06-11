@@ -15,7 +15,7 @@ const orderTest_1: Order = {
 const orderTest_2: Order = {
   quantity: 4,
   status: 'Out of Stock',
-  user_id: '2',
+  user_id: 2,
 };
 
 describe('Test Order Model Method Exists', () => {

@@ -33,7 +33,7 @@ export class OrderStore {
     if (client) {
       try {
         const sql =
-          'INSERT INTO orders (quantity, status, user_id) VALUES($1, $2, $3) RETURNING *';
+          'INSERT INTO orders (quantity, status, user_id) VALUES ($1, $2, $3) RETURNING *';
         const conn = await client.connect();
         const result = await conn.query(sql, [
           order.quantity,
