@@ -15,8 +15,7 @@ app.get('/', function (req: Request, res: Response) {
 
 user_routers(app);
 product_rounters(app);
-const response = order_routes(app);
-console.log("Response of order show is:" + response);
+order_routes(app);
 
 
 app.listen(3000, function () {
