@@ -47,17 +47,17 @@ class OrderStore {
         }
     }
     // Show an Order
-    async show(order_id) {
+    async show(user_id) {
         if (database_1.default) {
             try {
                 const sql = 'SELECT * FROM orders WHERE user_id=($1)';
                 const conn = await database_1.default.connect();
-                const result = await conn.query(sql, [order_id]);
+                const result = await conn.query(sql, [user_id]);
                 conn.release();
                 return result.rows[0];
             }
             catch (err) {
-                throw new Error(`Could not get the order ${order_id}. Error: ${err}.`);
+                throw new Error(`Could not get the order ${user_id}. Error: ${err}.`);
             }
         }
         else {

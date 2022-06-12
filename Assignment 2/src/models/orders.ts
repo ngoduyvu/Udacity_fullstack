@@ -51,16 +51,16 @@ export class OrderStore {
   }
 
   // Show an Order
-  async show(order_id: string | number): Promise<Order> {
+  async show(user_id: string | number): Promise<Order> {
     if (client) {
       try {
         const sql = 'SELECT * FROM orders WHERE user_id=($1)';
         const conn = await client.connect();
-        const result = await conn.query(sql, [order_id]);
+        const result = await conn.query(sql, [user_id]);
         conn.release();
         return result.rows[0];
       } catch (err) {
-        throw new Error(`Could not get the order ${order_id}. Error: ${err}.`);
+        throw new Error(`Could not get the order ${user_id}. Error: ${err}.`);
       }
     } else {
       throw new Error(`Cannot connect to the Database.`);

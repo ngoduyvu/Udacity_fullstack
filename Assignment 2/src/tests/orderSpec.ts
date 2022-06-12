@@ -93,7 +93,7 @@ describe('Test Order API Endpoint Response', () => {
     const result = JSON.parse(response.text);
     expect(result.quantity).toEqual(4);
     expect(result.status).toEqual('Out of Stock');
-    expect(result.user_id).toEqual(2);
+    expect(result.user_id).toEqual('2');
   });
 
   // Test Index
