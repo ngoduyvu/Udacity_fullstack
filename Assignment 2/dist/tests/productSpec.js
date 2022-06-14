@@ -4,10 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const products_1 = require("../models/products");
+const orders_1 = require("../models/orders");
 const supertest_1 = __importDefault(require("supertest"));
 const server_1 = __importDefault(require("../server"));
 const request = (0, supertest_1.default)(server_1.default);
 const product = new products_1.ProductStore();
+const order = new orders_1.OrderStore();
 let testUser;
 const productTest_1 = {
     name: "Samsung Galaxy",
@@ -51,13 +53,13 @@ describe('Test Product Model Method Functional', () => {
         expect(result.length).toBeGreaterThan(0);
     });
     it('Should get product which has ID 1', async () => {
-        const result = await product.show(1);
+        const result = await product.show(2);
         expect(result?.name).toEqual(productTest_1.name);
     });
     it('Should Delete product which has ID 1', async () => {
-        product.delete(1);
+        product.delete(2);
         const result = await product.index();
-        expect(result.length).toEqual(0);
+        expect(result.length).toEqual(1);
     });
 });
 describe('Test Product API Endpoint Response', () => {
@@ -71,7 +73,7 @@ describe('Test Product API Endpoint Response', () => {
     });
     // Test Show
     it('Should get product by ID in the Endpoint', async () => {
-        const response = await request.get('/products/2');
+        const response = await request.get('/products/3');
         const result = JSON.parse(response.text);
         expect(result.name).toEqual('Iphone');
         expect(result.price).toEqual(24000);
@@ -86,7 +88,7 @@ describe('Test Product API Endpoint Response', () => {
     // Test Delete
     it('Should delete a product in the Endpoint', async () => {
         const response = await request
-            .delete('/product/delete/2')
+            .delete('/product/delete/3')
             .set({ Authorization: JSON.parse(testUser.text).token });
         expect(response.status).toEqual(200);
     });

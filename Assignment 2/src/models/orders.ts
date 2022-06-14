@@ -6,6 +6,7 @@ export type Order = {
   quantity: number;
   status: string;
   user_id: number | string;
+  product_id: number | string;
 };
 
 export class OrderStore {
@@ -33,12 +34,13 @@ export class OrderStore {
     if (client) {
       try {
         const sql =
-          'INSERT INTO orders (quantity, status, user_id) VALUES ($1, $2, $3) RETURNING *';
+          'INSERT INTO orders (quantity, status, user_id, product_id) VALUES ($1, $2, $3, $4) RETURNING *';
         const conn = await client.connect();
         const result = await conn.query(sql, [
           order.quantity,
           order.status,
-          order.user_id
+          order.user_id,
+          order.product_id
         ]);
         conn.release();
         return result.rows[0];

@@ -1,25 +1,35 @@
 import { Order, OrderStore } from '../models/orders';
+import { ProductStore } from '../models/products';
 import supertest from 'supertest';
 import app from '../server';
 
 const request = supertest(app);
 const order = new OrderStore();
+const products = new ProductStore();
 let testUser: { text: string };
 
 const orderTest_1: Order = {
   quantity: 1,
   status: 'Sold',
   user_id: '1',
+  product_id: '1'
 };
 
 const orderTest_2: Order = {
   quantity: 4,
   status: 'Out of Stock',
   user_id: 2,
+  product_id: '1'
 };
 
 describe('Test Order Model Method Exists', () => {
   beforeAll(async () => {
+    await products.create({
+      name: "Xiaomi MI 11",
+      price: 8000,
+      category: "Electronic",
+    });
+
     testUser = await request.post('/users').send({
       username: 'test-user-a',
       firstName: 'Ngo',
@@ -78,6 +88,7 @@ describe('Test Order API Endpoint Response', () => {
       password: 'Elon Mush'
     });
   });
+
   // Test Create
   it('Should create an order in the Endpoint', async () => {
     const response = await request

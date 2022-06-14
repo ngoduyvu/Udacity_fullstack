@@ -30,7 +30,8 @@ const createOrders = async (req, res) => {
     const order = {
         quantity: req.body.quantity,
         status: req.body.status,
-        user_id: req.body.user_id
+        user_id: req.body.user_id,
+        product_id: req.body.product_id,
     };
     try {
         const result = await store.create(order);

@@ -66,3 +66,6 @@ GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;
 Before run build <br/>
 Run Migrate tables: `npm run migrate-up` <br/>
 Reset database by dropping tables: `npm run migrate-down` <br/>
+
+## Database Schema and Endpoints
+The database schema and endpoint can be see in [REQUIREMENTS file](https://github.com/ngoduyvu/Udacity_fullstack/tree/main/Assignment%202/REQUIREMENTS.md)

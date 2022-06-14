@@ -16,8 +16,7 @@ app.get('/', function (req, res) {
 });
 (0, users_1.default)(app);
 (0, products_1.default)(app);
-const response = (0, orders_1.default)(app);
-console.log("Response of order show is:" + response);
+(0, orders_1.default)(app);
 app.listen(3000, function () {
     console.log(`starting app on: ${address}`);
 });

@@ -4,23 +4,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const orders_1 = require("../models/orders");
+const products_1 = require("../models/products");
 const supertest_1 = __importDefault(require("supertest"));
 const server_1 = __importDefault(require("../server"));
 const request = (0, supertest_1.default)(server_1.default);
 const order = new orders_1.OrderStore();
+const products = new products_1.ProductStore();
 let testUser;
 const orderTest_1 = {
     quantity: 1,
     status: 'Sold',
     user_id: '1',
+    product_id: '1'
 };
 const orderTest_2 = {
     quantity: 4,
     status: 'Out of Stock',
     user_id: 2,
+    product_id: '1'
 };
 describe('Test Order Model Method Exists', () => {
     beforeAll(async () => {
+        await products.create({
+            name: "Xiaomi MI 11",
+            price: 8000,
+            category: "Electronic",
+        });
         testUser = await request.post('/users').send({
             username: 'test-user-a',
             firstName: 'Ngo',

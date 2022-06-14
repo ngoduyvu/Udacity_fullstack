@@ -1,9 +1,11 @@
 import { Product, ProductStore } from '../models/products';
+import { OrderStore } from '../models/orders';
 import supertest from 'supertest';
 import app from '../server';
 
 const request = supertest(app);
 const product = new ProductStore();
+const order = new OrderStore();
 let testUser: { text: string };
 
 const productTest_1: Product = {
@@ -57,14 +59,14 @@ describe('Test Product Model Method Exists', () => {
   });
 
   it('Should get product which has ID 1', async () => {
-    const result = await product.show(1);
+    const result = await product.show(2);
     expect(result?.name).toEqual(productTest_1.name);
   });
 
   it('Should Delete product which has ID 1', async () => {
-    product.delete(1);
+    product.delete(2);
     const result = await product.index();
-    expect(result.length).toEqual(0);
+    expect(result.length).toEqual(1);
   });
 });
 
@@ -80,7 +82,7 @@ describe('Test Product API Endpoint Response', () => {
 
   // Test Show
   it('Should get product by ID in the Endpoint', async () => {
-    const response = await request.get('/products/2');
+    const response = await request.get('/products/3');
     const result = JSON.parse(response.text);
     expect(result.name).toEqual('Iphone');
     expect(result.price).toEqual(24000);
@@ -97,7 +99,7 @@ describe('Test Product API Endpoint Response', () => {
   // Test Delete
   it('Should delete a product in the Endpoint', async () => {
     const response = await request
-      .delete('/product/delete/2')
+      .delete('/product/delete/3')
       .set({ Authorization: JSON.parse(testUser.text).token });
     expect(response.status).toEqual(200);
   });
