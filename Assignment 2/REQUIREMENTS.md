@@ -23,19 +23,20 @@ Database Schema of Storefront project
 - Destroy [DELETE][token required]:'/orders/delete/:id'
 ## Data Shapes
 ### User
-- id (Primary Key)
-- firstName
-- lastName
-- password
+- id: SERIAL PRIMARY KEY,
+- firstName: VARCHAR(150),
+- lastName: VARCHAR(150),
+- password: VARCHAR(255)
 
 ### Products
-- id (Primary Key)
-- name 
-- price 
-- category
+- id: SERIAL PRIMARY KEY,
+- name: VARCHAR(255),
+- price: INTEGER,
+- category: VARCHAR(150)
 ### Orders
-- id (Primary Key)
-- quantity
-- status
-- user_id (Foreign Key)
+- id: SERIAL PRIMARY KEY,
+- quantity: INTEGER,
+- status: VARCHAR(50),
+- user_id: BIGINT REFERENCES users(id),
+- product_id: BIGINT REFERENCES products(id)
 
