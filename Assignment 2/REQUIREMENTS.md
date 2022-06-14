@@ -1,6 +1,6 @@
 # Dabase Schema
 Database Schema of Storefront project
-![Dabase Schema](https://github.com/ngoduyvu/Udacity_fullstack/tree/main/Assignment%202/img/Store%front%Database%Schema.JPG)
+![Dabase Schema](https://github.com/ngoduyvu/Udacity_fullstack/blob/main/Assignment%202/img/Store%20front%20Database%20Schema.JPG)
 # API Requirements
 ## API Endpoints
 ### User
