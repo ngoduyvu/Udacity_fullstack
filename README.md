@@ -89,3 +89,16 @@ Run Docker Compose file: `docker-compose up -d`  <br/>
 Check if configure of Compose file: `docker-compose config`  <br/>
 Login to the database using username and database name from .env file `psql --host="hostname in .env" --username="username in .env" --dbname="dbname in .env"` <br/>
 Login to the database as username from .env file: `psql -U "username in .env"`  <br/>
+
+
+# Angular
+
+Install Angular CLI globally: `npm install -g @angular/cli` <br/>
+Check Angular version: `ng --version` <br/>
+Create a new Anglular Project:  `ng new <project-name>` <br/>
+Build and serve new project:  `ng serve --port <port-number>` <br/>
+Generate a file based on a certain schematic: `ng generate <schematic> <name>` <br/>
+Generate a module: `ng generate module <module-name>` <br/>
+Generate a component: `ng generate component <name>` <br/>
+Generate a service: `ng generate service <name>` <br/>
+Adding a npm package: `ng add <npm package>` <br/>
