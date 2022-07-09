@@ -15,7 +15,28 @@ export class ProductService {
     return this.http.get<Product[]>("assets/data.json");
   };
 
-  getProductById(id: number): Observable<Product> {
-    return this.getProducts().pipe((map(products => products.filter(product => product.id === id)[0])));
-  } 
+  getProductsTest() {
+    return [
+      {
+        id: 1,
+        name: 'Pandas',
+        price: 1000,
+        url: 'www.google.com',
+        quantity: 3,
+        description: 'This is test 1' 
+      },
+      {
+        id: 2,
+        name: 'Elephant',
+        price: 9000,
+        url: 'www.yandex.com',
+        quantity: 2,
+        description: 'This is test 2' 
+      }
+    ]
+  }
+
+  // getProductById(id: number): Observable<Product> {
+  //   return this.getProducts().pipe((map(products => products.filter(product => product.id === id)[0])));
+  // } 
 }
