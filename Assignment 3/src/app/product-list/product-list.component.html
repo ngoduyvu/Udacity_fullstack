@@ -1,12 +1,5 @@
-<!-- <div class="2342">
-    <div class="product-index">
-        <li *ngFor="let product of productList">
-            <p>{{product.name}}</p>
-        </li>
+<div class="product-list-container">
+    <div class="product-list" fxLayout="row-reverse" fxLayoutAlign="center">
+        <app-product-detail *ngFor="let product of productList" [product]="product"></app-product-detail>
     </div>
-</div> -->
-
-<div class="product-index">
-    <h1>Testing List</h1>
-    <app-product-detail *ngFor="let product of productList" [product]="product"></app-product-detail>
 </div>
