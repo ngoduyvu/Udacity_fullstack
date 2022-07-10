@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Product } from '../models/product';
 
 @Component({
@@ -9,9 +8,26 @@ import { Product } from '../models/product';
 })
 export class ProductListItemComponent implements OnInit {
 
-  constructor() { }
+  quantity: number;
+  @Input() product: Product;
+  @Output() addToCart: EventEmitter<Product> = new EventEmitter;
+
+  constructor() {
+    this.quantity = 0;
+    this.product = {
+      id: 0,
+      name: '',
+      price: 0,
+      url: '',
+      quantity: 0,
+      description: '' 
+    }
+  }
 
   ngOnInit(): void {
   }
 
+  submitProduct(): void {
+    this.addToCart.emit(this.product);
+  }
 }

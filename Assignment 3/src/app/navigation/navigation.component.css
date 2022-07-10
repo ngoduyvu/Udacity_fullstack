@@ -1,0 +1,13 @@
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e56934;
+    color: #fff;
+    padding: 12px;
+}
+
+.logo {
+    text-align: left;
+    padding-left: 50px;
+}

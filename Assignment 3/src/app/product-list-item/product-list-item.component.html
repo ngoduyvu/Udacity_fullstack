@@ -1,1 +1,14 @@
-<p>product-list-item works!</p>
+<div class="product-list-item-container">
+    <img src="{{ product.url }}" width="200px" height="200px" />
+    <div class="details">
+        <p>{{ product.name }}</p>
+        <p>{{ product.price }} AUD</p>
+        <p>{{ product.description }}</p>
+
+        <form #form="ngForm" (ngSubmit)="submitProduct">
+            <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity" [ngModel]="quantity" (ngModelChange)="quantity = $event">
+            <input type="submit" [disabled]="form.invalid" value="Add to Cart">
+        </form>
+    </div>
+</div>
+
