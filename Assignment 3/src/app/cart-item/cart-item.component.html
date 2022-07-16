@@ -1,0 +1,8 @@
+<div class="cart-item-container">
+    <img src="{{ product.url }}" width="200px" height="300px"/>
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.price }} AUD</p>
+    <p>Quantity: {{product.quantity}}</p>
+    <button class="" (click)="addItemCart(product)">+</button><br>
+    <button class="" (click)="removeItemCart(product)">-</button><br>
+</div>

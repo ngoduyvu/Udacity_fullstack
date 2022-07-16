@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { Product } from '../models/product';
 export class CartService {
 
   shoppingCart: Product[] = [];
+  public cartSize: BehaviorSubject<number> = new BehaviorSubject<number>(this.numberOfItemInCart());
 
   constructor() { }
 
@@ -24,14 +26,15 @@ export class CartService {
     });
     if (!added) {
       this.shoppingCart.push(product);
-      alert('New Items are added to your cart!');
+      //alert('New Items are added to your cart!');
+      alert(this.shoppingCart.length);
     };
   }
 
   numberOfItemInCart() : number {
     let amount: number = 0;
     this.shoppingCart.forEach(item => {
-      amount += 1;
+      amount += item.quantity;
     });
     return amount;
   }

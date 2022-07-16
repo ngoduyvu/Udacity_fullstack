@@ -1,9 +1,11 @@
+<h1 *ngIf="cartItems.length == 0">
+    <p>Cart is Empty!</p>
+</h1>
+
 <div class="cart-container">
     <div class="cart-details">
-        <!-- <div class="item-in-cart" *ngFor = "let item of cartItems">
-            <h3>{{item.name}}</h3>
-        </div> -->
-        <p>Vu Test</p>
+        <!--<app-cart-item class="cart-item" *ngFor="let product of cartItems" (addToCart)="addToCart($event)"></app-cart-item>  -->
+        <app-cart-item class="cart-item" *ngFor="let product of cartItems" [product]="product"></app-cart-item>
     </div>
 </div>
 

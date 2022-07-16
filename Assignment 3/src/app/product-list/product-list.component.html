@@ -1,5 +1,5 @@
 <div class="product-list-container">
     <div class="product-list" fxLayout="row-reverse" fxLayoutAlign="center">
-        <app-product-list-item *ngFor="let product of productList" [product]="product"></app-product-list-item>
+        <app-product-list-item *ngFor="let product of productList" [product]="product" (addToCart)="addToCart($event)"></app-product-list-item>
     </div>
 </div>

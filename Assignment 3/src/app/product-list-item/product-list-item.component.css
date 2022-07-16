@@ -1,6 +1,7 @@
 .product-list-item-container {
     display: flex;
-    padding: 50px;
+    margin: 80px;
+    border: solid;
 }
 
 image {
